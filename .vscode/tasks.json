@@ -1,0 +1,48 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Build raylib",
+            "type": "process",
+            "command": "C:/mingw64/bin/g++.exe",
+            "args": [
+                "${workspaceFolder}/main.cpp",
+                "${workspaceFolder}/movement.cpp",
+                "${workspaceFolder}/collisions.cpp",
+                "${workspaceFolder}/snake.cpp",
+                "-o",
+                "${workspaceFolder}/Snake.exe",
+                "-IC:/raylib/raylib/include",
+                "-LC:/raylib/raylib/lib",
+                "-lraylib",
+                "-lopengl32",
+                "-lgdi32",
+                "-lwinmm"
+            ],
+            "options": {
+                "cwd": "${workspaceFolder}"
+            },
+            "problemMatcher": ["$gcc"]
+        },
+        {
+            "label": "Run raylib",
+            "type": "process",
+            "command": "${workspaceFolder}/Snake.exe",
+            "options": {
+                "cwd": "${workspaceFolder}"
+            }
+        },
+        {
+            "label": "Build and Run raylib",
+            "dependsOn": [
+                "Build raylib",
+                "Run raylib"
+            ],
+            "dependsOrder": "sequence",
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            }
+        }
+    ]
+}
