@@ -8,12 +8,13 @@ using namespace std;
 
 int main(){
     int score = 0;
+    int foodX = GetRandomValue(0, 20) * 20;
+    int foodY = GetRandomValue(0, 20) * 20;
     string menu = "Press W - A - S - D to move the snake.";
     string end = "Game Over!";
     vector<vector<int>> snake {
         {380, 280},
         {360, 280},
-        {340, 280}
     };
     int moveX = 0;
     int moveY = 0;
@@ -36,6 +37,7 @@ while(!WindowShouldClose()){
             if(!gameOver){
                 direction(moveX, moveY, menu);
                 movement(snake, moveX, moveY);
+                food(snake, foodX, foodY, score);
             } else {
                 DrawText(end.c_str(), 300, 280, 40, WHITE);
             }
