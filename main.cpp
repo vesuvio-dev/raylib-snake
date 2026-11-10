@@ -13,8 +13,9 @@ int main(){
     string menu = "Press W - A - S - D to move the snake.";
     string end = "Game Over!";
     vector<vector<int>> snake {
-        {380, 280},
-        {360, 280},
+        {380, 280},  //Head
+        {360, 280}, //Body
+        {360, 280}, //Tail
     };
     int moveX = 0;
     int moveY = 0;
