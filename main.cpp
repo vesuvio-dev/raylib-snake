@@ -22,7 +22,7 @@ int main(){
     int moveY = 0;
     bool gameOver = false;
 
-    InitWindow(800, 600, "Snake");
+    InitWindow(800, 600, "raylib-snake");
     SetTargetFPS(15);
 
 while(!WindowShouldClose()){
@@ -49,7 +49,7 @@ while(!WindowShouldClose()){
                 food(snake, foodX, foodY, score);
             }else{
             DrawText(end.c_str(), 235, 265, 60, WHITE);
-            GameOverMenu(gameOver, snake, moveX, moveY, score);
+            GameOverMenu(gameOver, snake, moveX, moveY, score, foodX, foodY);
             }
 
             EndDrawing();
