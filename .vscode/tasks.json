@@ -10,6 +10,7 @@
                 "${workspaceFolder}/movement.cpp",
                 "${workspaceFolder}/collisions.cpp",
                 "${workspaceFolder}/snake.cpp",
+                "${workspaceFolder}/menu.cpp",
                 "-o",
                 "${workspaceFolder}/Snake.exe",
                 "-IC:/raylib/raylib/include",

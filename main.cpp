@@ -2,6 +2,7 @@
 #include "movement.h"
 #include "collisions.h"
 #include "snake.h"
+#include "menu.h"
 #include <vector>
 
 using namespace std;
@@ -28,23 +29,29 @@ while(!WindowShouldClose()){
 
         BeginDrawing();
 
-            ClearBackground(BLACK);
-            DrawRectangleLinesEx(Rectangle{0, 0, 800, 600}, 20, WHITE);
-            DrawText(menu.c_str(), 30, 30, 20, WHITE);
-            DrawText(TextFormat("%i", score), 50, 50, 30, WHITE);
-            drawSnake(snake);
+            //Main Background
+            ClearBackground(BLACK); 
 
-            checkBorderCollision(snake, gameOver);
-            checkSnakeCollision(snake, gameOver);
+            //Border
+            DrawRectangleLinesEx(Rectangle{0, 0, 800, 600}, 20, WHITE);     
+
+            //Game Started Functions
             if(!gameOver){
+                DrawText(menu.c_str(), 30, 30, 20, WHITE);
+                drawSnake(snake);
+                DrawText(TextFormat("%i", score), 50, 50, 30, WHITE);
+                checkBorderCollision(snake, gameOver);
+                checkSnakeCollision(snake, gameOver);
                 direction(moveX, moveY, menu);
                 if(moveX != 0 || moveY != 0){
                 movement(snake, moveX, moveY);
                 }
                 food(snake, foodX, foodY, score);
-            } else {
-                DrawText(end.c_str(), 300, 280, 40, WHITE);
+            }else{
+            DrawText(end.c_str(), 235, 265, 60, WHITE);
+            GameOverMenu(gameOver, snake, moveX, moveY, score);
             }
+
             EndDrawing();
     }
     CloseWindow();
