@@ -9,8 +9,8 @@ using namespace std;
 
 int main(){
     int score = 0;
-    int foodX = GetRandomValue(0, 20) * 20;
-    int foodY = GetRandomValue(0, 20) * 20;
+    int foodX = GetRandomValue(2, 37) * 20;
+    int foodY = GetRandomValue(2, 27) * 20;
     string menu = "Press W - A - S - D to move the snake.";
     string end = "Game Over!";
     vector<vector<int>> snake {
