@@ -7,10 +7,8 @@ void drawSnake(std::vector<std::vector<int>> snake){
     }
 }
 
-void increasesize(std::vector<std::vector<int>>& snake, int& score){
-    if(score += 1){
+void increasesize(std::vector<std::vector<int>>& snake){
         snake.push_back({snake[1][0], snake[1][1]});
-    }
 }
 
 void food(std::vector<std::vector<int>>& snake, int& foodX, int& foodY, int& score){
@@ -24,6 +22,6 @@ void food(std::vector<std::vector<int>>& snake, int& foodX, int& foodY, int& sco
         foodX = GetRandomValue(0, 20) * 20;
         foodY = GetRandomValue(0, 20) * 20;
         score++;
-        increasesize(snake, score);
+        snake.push_back({snake[1][0], snake[1][1]});
     }
 }
