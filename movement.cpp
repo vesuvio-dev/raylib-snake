@@ -6,12 +6,12 @@
 
 
 void movement(std::vector<std::vector<int>>& snake, int& moveX, int& moveY){
-    snake[0][0] += moveX;
-    snake[0][1] += moveY;
     for(int i = snake.size() - 1; i > 0; i--){
         snake[i][0] = snake[i - 1][0];
         snake[i][1] = snake[i - 1][1];
     }
+    snake[0][0] += moveX;
+    snake[0][1] += moveY;
 }
 void direction(int& moveX, int& moveY, std::string& menu){
     if(IsKeyPressed(KEY_W)){
