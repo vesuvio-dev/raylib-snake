@@ -35,9 +35,12 @@ while(!WindowShouldClose()){
             drawSnake(snake);
 
             checkBorderCollision(snake, gameOver);
+            checkSnakeCollision(snake, gameOver);
             if(!gameOver){
                 direction(moveX, moveY, menu);
+                if(moveX != 0 || moveY != 0){
                 movement(snake, moveX, moveY);
+                }
                 food(snake, foodX, foodY, score);
             } else {
                 DrawText(end.c_str(), 300, 280, 40, WHITE);
